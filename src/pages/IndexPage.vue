@@ -12,12 +12,12 @@
         <q-card class="column full-height">
           <q-card-section class="row items-center no-wrap">
             <div class="q-pa-md">
-              <p class="col-6 text-subtitle1 text-weight-bold text-center">
+              <p class="col-6 text-h6 text-weight-bold text-center">
                 Ventas de productos
               </p>
-              <p class="col-6 text-subtitle2">cod de venta: #</p>
+              <p class="col-6 text-subtitle2">Cod de venta: #</p>
               <div class="q-mb-lg">
-                <q-toggle class="col-2" v-model="displayHtml" label="Pro" />
+                <q-radio size="xs" v-model="shape" val="xs" label="Pro" />
               </div>
 
               <q-btn
@@ -35,7 +35,7 @@
                 ref="stepper"
                 color="primary"
                 animated
-                style="width: 830px"
+                style="max-width: 840px"
               >
                 <q-step :name="1" title="Paso 1" icon="settings" :done="done1">
                   <!-- parte 1 -->
@@ -94,6 +94,7 @@
                   title="Paso 3"
                   icon="add_comment"
                   :done="done3"
+                  class=""
                 >
                   <!-- parte 4 -->
                   <filaD></filaD>
@@ -178,6 +179,9 @@ export default defineComponent({
       displayHtml: ref(false),
 
       //table
+
+    // hgf
+    shape: ref('line'),
     };
   },
 });
@@ -186,8 +190,9 @@ export default defineComponent({
 <style>
 .linea {
   padding: 5px;
-
   background-color: rgba(31, 59, 85, 0.096);
 }
+
+
 
 </style>
