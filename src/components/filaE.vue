@@ -2,35 +2,51 @@
   <div class="linea col-12"></div>
   <div class="row justify-center items-center q-mb-lg">
     <div class="col-12 text-center q-pb-sm">
-      <q-toggle v-model="displayHtml5" label="Registrar guía de remisión" />
+      <q-radio
+        size="xs"
+        v-model="shape"
+        val="xs"
+        label="Registrar guía de remisión"
+      />
     </div>
 
     <div class="col-12 q-pb-xl">
       <div class="row text-center">
         <div class="col-12 q-pb-sm">
-          <q-toggle v-model="displayHtml6" label="Registrar como anulada" />
-        </div>
-        <div class="col-6">
-          <q-btn
-            icon="delete_forever"
-            label="Limpiar lista"
-            stack
-            glossy
-            color="negative"
-          />
-        </div>
-        <div class="col-6">
-          <q-btn
-            icon="save_as"
-            label="Grabar (Ctrl+G)"
-            stack
-            glossy
-            color="primary"
+          <q-radio
+            size="xs"
+            v-model="shape2"
+            val="xs"
+            label="Registrar como anulada"
           />
         </div>
       </div>
     </div>
-    <div class="col-8">
+    <div class="col-2">
+      <q-fab
+        v-model="fabCenter"
+        vertical-actions-align="center"
+        color="primary"
+        glossy
+        icon="keyboard_arrow_up"
+        direction="up"
+      >
+        <q-fab-action
+          color="primary"
+          @click="onClick"
+          icon="save"
+          label="Guardar"
+        />
+        <q-fab-action
+          color="negative"
+          @click="onClick"
+          icon="delete"
+          label="Eliminar L"
+        />
+      </q-fab>
+    </div>
+
+    <div class="col-9">
       <div class="row q-pl-sm">
         <div class="col-6 q-pr-sm">
           <q-input
@@ -76,6 +92,12 @@ export default {
       displayHtml6: ref(false),
       price9: ref(null),
       price10: ref(null),
+      shape: ref("line"),
+      shape2: ref("line"),
+
+      fabLeft: ref(true),
+      fabCenter: ref(true),
+      fabRight: ref(true),
     };
   },
 };

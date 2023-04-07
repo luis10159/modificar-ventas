@@ -1,5 +1,18 @@
 <template>
   <p class="text-weight-bold">Lista de productos</p>
+  <div class="row">
+    <q-input
+    v-model="search"
+    debounce="1000"
+    filled
+    placeholder="Buscar (Ctrl+B)"
+    class="col-3"
+  >
+    <template v-slot:append>
+      <q-icon name="search" />
+    </template>
+  </q-input>
+  </div>
   <q-virtual-scroll
     type="table"
     style="max-height: 45vh"
@@ -8,9 +21,7 @@
     :virtual-scroll-sticky-size-end="32"
     :items="heavyList"
   >
-  
     <template v-slot:before>
-      
       <thead class="">
         <tr>
           <th v-for="col in columns" :key="'1--' + col.name2">
@@ -167,19 +178,3 @@ export default {
   },
 };
 </script>
-
-<style lang="sass">
-.thead-custom-sticky tr > *,
-.tfoot-custom-sticky tr > *
-  position: sticky
-  opacity: 1
-  z-index: 1
-  background-color: black
-  color: white
-
-.thead-custom-sticky tr:last-child > *
-  top: 0
-
-.tfoot-custom-sticky tr:first-child > *
-  bottom: 0
-</style>

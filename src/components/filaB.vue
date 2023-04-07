@@ -58,11 +58,7 @@
     </div>
     <div class="col-4 q-pr-sm">
       <div class="col">
-        <q-toggle
-          class="col-3 self-center"
-          v-model="displayHtml2"
-          label="IGV 18%"
-        />
+        <q-radio size="xs" v-model="shape" val="xs" label="IGV 18%" />
       </div>
       <div class="col">
         <q-input
@@ -75,11 +71,7 @@
         />
       </div>
       <div class="col">
-        <q-toggle
-          class="col-3 self-center"
-          v-model="displayHtml3"
-          label="Deducir IGV"
-        />
+        <q-radio size="xs" v-model="shape2" val="xs" label="Deducir IGV" />
       </div>
     </div>
     <div class="col-4 q-pr-sm">
@@ -93,7 +85,7 @@
         input-class="text-right"
       />
     </div>
-    <div class="col-4 col-xs-3">
+    <div class="col-4">
       <q-input
         filled
         v-model="price8"
@@ -115,8 +107,7 @@ export default {
 
   setup() {
     return {
-      displayHtml2: ref(false),
-      displayHtml3: ref(false),
+
       price: ref(null),
       price2: ref(null),
       price3: ref(null),
@@ -125,10 +116,10 @@ export default {
       price6: ref(null),
       price7: ref(null),
       price8: ref(null),
+
+      shape: ref('line'),
+      shape2: ref('line'),
     };
   },
 };
 </script>
-
-<style>
-</style>

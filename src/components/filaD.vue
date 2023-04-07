@@ -32,11 +32,7 @@
           <q-input filled v-model="text7" stack-label  />
         </div>
         <div class="col-4 q-pb-sm">
-          <q-toggle
-            class="col-3 self-center"
-            v-model="displayHtml4"
-            label="Sin F. Emisión"
-          />
+          <q-radio size="xs" v-model="shape" val="xs" label="Sin F. Emisión" />
           <q-input v-model="date" filled type="date" />
         </div>
       </div>
@@ -74,6 +70,7 @@ export default {
       model4: ref(null),
       model5: ref(null),
       options: ["Opción 1", "Opción 2", "Opción 3", "Opción 4", "Opción 5"],
+      shape: ref('line'),
     };
   },
 };
